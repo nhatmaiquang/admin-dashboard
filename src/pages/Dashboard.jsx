@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Chart from "react-apexcharts"
-
-import statusCards from "../assets/JsonData/status-card-data.json"
+import Chart from 'react-apexcharts'
+import { useSelector } from 'react-redux'
 
 import StatusCard from '../components/status-card/StatusCard'
 import Table from '../components/table/Table'
 import Badge from '../components/badge/Badge'
+
+import statusCards from '../assets/JsonData/status-card-data.json'
 
 const chartOptions = {
     series: [{
@@ -157,6 +158,9 @@ const renderOrderBody = (item, index) => (
 )
 
 const Dashboard = () => {
+
+    const themeReducer = useSelector(state => state.ThemeReducer.mode)
+
     return (
         <div>
             <h2 className="page-header">Dashboard</h2>
@@ -180,7 +184,13 @@ const Dashboard = () => {
                     <div className="card full-height">
                         {/* chart */}
                         <Chart
-                            options={chartOptions.options}
+                            options={themeReducer === 'theme-mode-dark' ? {
+                                ...chartOptions.options,
+                                theme: { mode: 'dark'}
+                            } : {
+                                ...chartOptions.options,
+                                theme: { mode: 'light'}
+                            }}
                             series={chartOptions.series}
                             type='line'
                             height='100%'
@@ -193,7 +203,6 @@ const Dashboard = () => {
                             <h3>top customers</h3>
                         </div>
                         <div className="card__body">
-                            {/* table */}
                             <Table
                                 headData={topCustomers.head}
                                 renderHead={(item, index) => renderCusomerHead(item, index)}
@@ -212,7 +221,6 @@ const Dashboard = () => {
                             <h3>latest orders</h3>
                         </div>
                         <div className="card__body">
-                            {/* table */}
                             <Table
                                 headData={latestOrders.header}
                                 renderHead={(item, index) => renderOrderHead(item, index)}
