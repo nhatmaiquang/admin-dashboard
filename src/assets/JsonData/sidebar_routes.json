@@ -11,37 +11,37 @@
     },
     {
         "display_name": "Products",
-        "route": "/products",
+        "route": "/admin-dashboard/products",
         "icon": "bx bx-package"
     },
     {
         "display_name": "Orders",
-        "route": "/orders",
+        "route": "/admin-dashboard/orders",
         "icon": "bx bx-cart"
     },
     {
         "display_name": "Analytics",
-        "route": "/analytics",
+        "route": "/admin-dashboard/analytics",
         "icon": "bx bx-bar-chart-alt"
     },
     {
         "display_name": "categories",
-        "route": "/categories",
+        "route": "/admin-dashboard/categories",
         "icon": "bx bx-list-ol"
     },
     {
         "display_name": "discount",
-        "route": "/discount",
+        "route": "/admin-dashboard/discount",
         "icon": "bx bx-gift"
     },
     {
         "display_name": "inventory",
-        "route": "/inventory",
+        "route": "/admin-dashboard/inventory",
         "icon": "bx bx-store-alt"
     },
     {
         "display_name": "settings",
-        "route": "/settings",
+        "route": "/admin-dashboard/settings",
         "icon": "bx bx-cog"
     }
 ]
